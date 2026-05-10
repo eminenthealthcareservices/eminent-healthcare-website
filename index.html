@@ -3,60 +3,357 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Eminent Healthcare Services — Launching Soon</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: #0a1628;
-      color: white;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 24px;
-    }
-    .container { max-width: 640px; }
-    .logo { height: 80px; width: auto; margin: 0 auto 40px; display: block; }
-    .label {
-      font-size: .75rem; letter-spacing: .22em; text-transform: uppercase;
-      color: #c9a84c; margin-bottom: 24px; font-weight: 500;
-    }
-    h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.8rem, 6vw, 4.5rem);
-      font-weight: 700; line-height: 1.15; margin-bottom: 24px;
-    }
-    h1 em { font-style: italic; color: #e2c97e; }
-    p {
-      font-size: 1rem; color: rgba(255,255,255,.65);
-      line-height: 1.8; margin-bottom: 40px;
-    }
-    .divider {
-      width: 60px; height: 1.5px;
-      background: linear-gradient(90deg, #c9a84c, #1a7a8a);
-      margin: 0 auto 40px;
-    }
-    .contact { font-size: .9rem; color: rgba(255,255,255,.5); }
-    .contact a { color: #c9a84c; text-decoration: none; }
-    .contact a:hover { color: #e2c97e; }
-  </style>
+  <title>Eminent Healthcare Services | Integrated Healthcare Ecosystem</title>
+  <meta name="description" content="Eminent Healthcare Services — India's integrated healthcare group. Medical Tourism, Medical Equipment, Healthcare Consulting &amp; HR. Mumbai." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-  <div class="container">
-    <img src="assets/images/logo.png" alt="Eminent Healthcare Services" class="logo" />
-    <div class="label">Coming Soon</div>
-    <h1>Something <em>Remarkable</em><br/>Is On Its Way</h1>
-    <div class="divider"></div>
-    <p>Eminent Healthcare Services is India's integrated healthcare group — delivering excellence across Medical Tourism, Equipment, Consulting, and Healthcare HR. We are putting the finishing touches on our digital home.</p>
-    <div class="contact">
-      For enquiries contact us at&nbsp;
-      <a href="mailto:info.eminent.hcs@gmail.com">info.eminent.hcs@gmail.com</a>
-      &nbsp;or&nbsp;
-      <a href="tel:+919529676929">+91 9529676929</a>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <span><i class="fas fa-phone"></i><a href="tel:+919529676929">+91 9529676929</a></span>
+      <span><i class="fas fa-envelope"></i><a href="mailto:info.eminent.hcs@gmail.com">info.eminent.hcs@gmail.com</a></span>
+      <span><i class="fas fa-map-marker-alt"></i>520-521 Corporate Avenue, Goregaon East, Mumbai 400063</span>
+    </div>
+    <div class="topbar-right">
+      <div class="topbar-social">
+        <a href="https://www.linkedin.com/company/eminent-hr-services" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://wa.me/919529676929" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
     </div>
   </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/images/logo.png" class="site-logo-img" alt="Eminent Healthcare Services" onerror="this.style.display='none';document.getElementById('nf').classList.remove('hidden')" />
+      <div class="logo-fallback hidden" id="nf"><span class="logo-fallback-main">Eminent</span><span class="logo-fallback-sub">Healthcare Services</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="#" data-open-about>About Us</a>
+      <div class="nav-dropdown-wrap">
+        <a href="#services">Services <i class="fas fa-chevron-down dropdown-caret"></i></a>
+        <div class="nav-dropdown">
+          <a href="services/medical-value-tourism.html"><i class="fas fa-plane-departure"></i><span class="dd-label">Medical Value Tourism<span>International Patient Care</span></span></a>
+          <a href="services/medical-equipment.html"><i class="fas fa-microscope"></i><span class="dd-label">Medical Equipment<span>Diagnostic &amp; Surgical Supply</span></span></a>
+          <a href="services/healthcare-consulting.html"><i class="fas fa-chart-line"></i><span class="dd-label">Healthcare Consulting<span>Strategy &amp; Advisory</span></span></a>
+          <hr />
+          <a href="https://eminenthrs.com/job-seekers" target="_blank" rel="noopener"><i class="fas fa-user-nurse"></i><span class="dd-label">Healthcare HR <i class="fas fa-external-link-alt" style="font-size:.6rem"></i><span>Visit EminentHRS</span></span></a>
+        </div>
+      </div>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="nav-cta">Send Us an Enquiry</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="menuClose"><i class="fas fa-times"></i></button>
+  <a href="index.html" class="menu-close-on-click">Home</a>
+  <a data-open-about class="menu-close-on-click">About Us</a>
+  <button class="mobile-nav-services-toggle" id="mobileServicesToggle">Services <i class="fas fa-chevron-down" style="font-size:.8rem;margin-left:6px"></i></button>
+  <div class="mobile-nav-services-submenu" id="mobileServicesSubmenu">
+    <a href="services/medical-value-tourism.html" class="menu-close-on-click"><i class="fas fa-plane-departure" style="margin-right:8px;color:var(--gold)"></i>Medical Value Tourism</a>
+    <a href="services/medical-equipment.html" class="menu-close-on-click"><i class="fas fa-microscope" style="margin-right:8px;color:var(--gold)"></i>Medical Equipment</a>
+    <a href="services/healthcare-consulting.html" class="menu-close-on-click"><i class="fas fa-chart-line" style="margin-right:8px;color:var(--gold)"></i>Healthcare Consulting</a>
+    <a href="https://eminenthrs.com/job-seekers" target="_blank" rel="noopener"><i class="fas fa-user-nurse" style="margin-right:8px;color:var(--gold)"></i>Healthcare HR &#8599;</a>
+  </div>
+  <a href="#contact" class="menu-close-on-click">Contact</a>
+  <div class="mobile-menu-social">
+    <a href="https://www.linkedin.com/company/eminent-hr-services" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://wa.me/919529676929" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+    <a href="mailto:info.eminent.hcs@gmail.com"><i class="fas fa-envelope"></i></a>
+  </div>
+</div>
+
+<!-- ABOUT PANEL -->
+<div class="about-panel" id="aboutPanel">
+  <div class="about-panel-inner">
+    <button class="about-panel-close" id="aboutPanelClose"><i class="fas fa-times"></i></button>
+    <div class="about-panel-label">Who We Are</div>
+    <h2 class="about-panel-title">About <em>Eminent Healthcare Services</em></h2>
+
+    <div class="about-panel-vision" style="margin-top:0;margin-bottom:22px;">
+      <h4>Our Vision</h4>
+      <p>To become Asia's most trusted integrated healthcare services group — where every patient receives the clinical care they deserve, every institution reaches its fullest potential, and every healthcare professional finds purpose and growth in their career.</p>
+    </div>
+
+    <div class="about-panel-vision" style="margin-bottom:22px;background:linear-gradient(135deg,#132040,rgba(26,122,138,.15));border-left:3px solid var(--teal-light);">
+      <h4 style="color:var(--teal-light);">Our Mission</h4>
+      <p>To bridge the gap between patients who need world-class healthcare and institutions that provide it — by building a transparent, clinically governed, and human-centred ecosystem across Medical Value Tourism, Equipment, Consulting, and Healthcare Workforce solutions. We are committed to making quality healthcare accessible, affordable, and deeply personal for every individual we serve.</p>
+    </div>
+
+    <p class="about-panel-lead">Eminent Healthcare Services is India's integrated healthcare group — a multi-dimensional platform built to serve patients, institutions, and professionals with integrity, expertise, and a human-first approach.</p>
+    <p class="about-panel-body">Founded with a vision to transform how healthcare is accessed, delivered, and experienced — we operate across four specialized service lines addressing critical touchpoints in the modern healthcare ecosystem.</p>
+    <div class="about-panel-pillars">
+      <div class="about-pillar-card"><i class="fas fa-plane-departure"></i><h4>Medical Value Tourism</h4><p>End-to-end medical travel facilitation for international patients seeking world-class care in India.</p></div>
+      <div class="about-pillar-card"><i class="fas fa-microscope"></i><h4>Medical Equipment</h4><p>Procurement and supply of premium diagnostic, surgical, and therapeutic medical equipment.</p></div>
+      <div class="about-pillar-card"><i class="fas fa-chart-line"></i><h4>Healthcare Consulting</h4><p>Strategic advisory and transformation consulting for hospitals and medical enterprises.</p></div>
+      <div class="about-pillar-card"><i class="fas fa-user-nurse"></i><h4>Healthcare HR</h4><p>Specialized talent acquisition connecting skilled professionals with leading healthcare organizations.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO SLIDER -->
+<section class="hero" id="home">
+  <div class="hero-slides" aria-hidden="true">
+    <div class="hero-slide active"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+  </div>
+  <div class="hero-slide-dots">
+    <button class="hero-dot active" data-slide="0"></button>
+    <button class="hero-dot" data-slide="1"></button>
+    <button class="hero-dot" data-slide="2"></button>
+    <button class="hero-dot" data-slide="3"></button>
+  </div>
+  <div class="hero-content">
+    <div class="hero-inner">
+      <div class="hero-inner-text">
+        <div class="hero-badge"><i class="fas fa-shield-alt"></i>&nbsp; India's Integrated Healthcare Group</div>
+        <h1 class="hero-title">Where Healthcare<br/>Meets <em>Excellence</em></h1>
+        <p class="hero-subtitle">Eminent Healthcare Services is India's premier integrated healthcare group — delivering measurable impact across Medical Tourism, Equipment, Consulting, and Healthcare Workforce solutions.</p>
+        <div class="hero-actions">
+          <a href="#services" class="btn-primary"><i class="fas fa-th-large"></i>&nbsp; Explore Services</a>
+          <a href="https://wa.me/919529676929" target="_blank" rel="noopener" class="btn-whatsapp"><i class="fab fa-whatsapp"></i>&nbsp; Chat on WhatsApp</a>
+        </div>
+        <div class="hero-scroll-hint">Scroll to explore</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOSPITAL PARTNERS -->
+<section class="hospitals-section" id="hospitals">
+  <div class="container">
+    <div class="section-header center reveal">
+      <div class="section-label">Our Network</div>
+      <h2 class="section-title">Partnered with India's <em>Finest Hospitals</em></h2>
+      <p class="section-desc">A curated network of India's leading hospitals — selected for clinical excellence, advanced technology, and international care standards.</p>
+    </div>
+    <div class="hosp-stats-row reveal">
+      <div class="hosp-stat-cell"><div class="hs-num"><span>105</span>+</div><div class="hs-label">Hospitals Serving</div></div>
+      <div class="hosp-stat-cell"><div class="hs-num"><span>15</span>+</div><div class="hs-label">Countries Serving</div></div>
+      <div class="hosp-stat-cell"><div class="hs-num"><span>30</span>+</div><div class="hs-label">Medical Specialties</div></div>
+    </div>
+  </div>
+  <div class="hosp-marquee-label reveal">Our Hospital Partners</div>
+  <div class="hosp-track-wrap">
+    <div class="hosp-logo-track">
+      <div class="hosp-logo-card"><img src="assets/images/hospitals/apollo.png" alt="Apollo Hospitals" /><div class="hosp-card-name">Apollo Hospitals</div></div>
+      <div class="hosp-logo-card"><img src="assets/images/hospitals/kokilaben.png" alt="Kokilaben Dhirubhai" /><div class="hosp-card-name">Kokilaben Dhirubhai Ambani</div></div>
+      <div class="hosp-logo-card"><img src="assets/images/hospitals/nanavati.png" alt="Nanavati Hospital" /><div class="hosp-card-name">Nanavati Hospital</div></div>
+      <div class="hosp-logo-card"><img src="assets/images/hospitals/asian-heart.png" alt="Asian Heart Institute" /><div class="hosp-card-name">Asian Heart Institute</div></div>
+      <div class="hosp-logo-card"><img src="assets/images/hospitals/bhatia.png" alt="Bhatia Hospital" /><div class="hosp-card-name">Bhatia Hospital</div></div>
+      <div class="hosp-logo-card"><img src="assets/images/hospitals/jaslok.png" alt="Jaslok Hospital" /><div class="hosp-card-name">Jaslok Hospital</div></div>
+      <div class="hosp-logo-card"><img src="assets/images/hospitals/jupiter.png" alt="Jupiter Hospital" /><div class="hosp-card-name">Jupiter Hospital</div></div>
+      <div class="hosp-logo-card"><img src="assets/images/hospitals/hn-reliance.png" alt="HN Reliance Foundation" /><div class="hosp-card-name">HN Reliance Foundation</div></div>
+      <div class="hosp-logo-card"><img src="assets/images/hospitals/saifee.png" alt="Saifee Hospital" /><div class="hosp-card-name">Saifee Hospital</div></div>
+      <div class="hosp-logo-card"><img src="assets/images/hospitals/godrej.png" alt="Godrej Memorial Hospital" /><div class="hosp-card-name">Godrej Memorial Hospital</div></div>
+      <div class="hosp-logo-card"><img src="assets/images/hospitals/surya.png" alt="Surya Hospital" /><div class="hosp-card-name">Surya Hospital</div></div>
+      <div class="hosp-logo-card"><img src="assets/images/hospitals/hncii.png" alt="HNCII" /><div class="hosp-card-name">HNCII</div></div>
+      <!-- Duplicate for seamless loop -->
+      <div class="hosp-logo-card"><img src="assets/images/hospitals/apollo.png" alt="Apollo Hospitals" /><div class="hosp-card-name">Apollo Hospitals</div></div>
+      <div class="hosp-logo-card"><img src="assets/images/hospitals/kokilaben.png" alt="Kokilaben Dhirubhai" /><div class="hosp-card-name">Kokilaben Dhirubhai</div></div>
+       <div class="hosp-logo-card"><img src="assets/images/hospitals/nanavati.png" alt="Nanavati Hospital" /><div class="hosp-card-name">Nanavati Hospital</div></div>
+      <div class="hosp-logo-card"><img src="assets/images/hospitals/asian-heart.png" alt="Asian Heart Institute" /><div class="hosp-card-name">Asian Heart Institute</div></div>
+      <div class="hosp-logo-card"><img src="assets/images/hospitals/bhatia.png" alt="Bhatia Hospital" /><div class="hosp-card-name">Bhatia Hospital</div></div>
+      <div class="hosp-logo-card"><img src="assets/images/hospitals/jaslok.png" alt="Jaslok Hospital" /><div class="hosp-card-name">Jaslok Hospital</div></div>
+      <div class="hosp-logo-card"><img src="assets/images/hospitals/jupiter.png" alt="Jupiter Hospital" /><div class="hosp-card-name">Jupiter Hospital</div></div>
+      <div class="hosp-logo-card"><img src="assets/images/hospitals/hn-reliance.png" alt="HN Reliance Foundation" /><div class="hosp-card-name">HN Reliance Foundation</div></div>
+      <div class="hosp-logo-card"><img src="assets/images/hospitals/saifee.png" alt="Saifee Hospital" /><div class="hosp-card-name">Saifee Hospital</div></div>
+      <div class="hosp-logo-card"><img src="assets/images/hospitals/godrej.png" alt="Godrej Memorial Hospital" /><div class="hosp-card-name">Godrej Memorial Hospital</div></div>
+      <div class="hosp-logo-card"><img src="assets/images/hospitals/surya.png" alt="Surya Hospital" /><div class="hosp-card-name">Surya Hospital</div></div>
+      <div class="hosp-logo-card"><img src="assets/images/hospitals/hncii.png" alt="HNCII" /><div class="hosp-card-name">HNCII</div></div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES GRID -->
+<section class="services-section" id="services">
+  <div class="container">
+    <div class="section-header center reveal">
+      <div class="section-label">Our Services</div>
+      <h2 class="section-title">Four Pillars of <em>Healthcare Excellence</em></h2>
+      <p class="section-desc">Four specialized service lines — each a leader in its domain, united by a singular vision of healthcare excellence.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon icon-tourism"><i class="fas fa-plane-departure"></i></div>
+        <div class="service-tag">Service 01</div>
+        <h3>Medical Value Tourism</h3>
+        <p>Comprehensive medical travel facilitation connecting international patients to India's finest hospitals — with full-spectrum support from inquiry to post-recovery care.</p>
+        <a href="services/medical-value-tourism.html" class="service-btn gold"><i class="fas fa-arrow-right"></i>&nbsp; Learn More</a>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon icon-equipment"><i class="fas fa-microscope"></i></div>
+        <div class="service-tag">Service 02</div>
+        <h3>Medical Equipment</h3>
+        <p>Sourcing, supply, and lifecycle management of world-class diagnostic, surgical, and therapeutic medical equipment for hospitals and clinics across India.</p>
+        <a href="services/medical-equipment.html" class="service-btn teal"><i class="fas fa-arrow-right"></i>&nbsp; Learn More</a>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon icon-consulting"><i class="fas fa-chart-line"></i></div>
+        <div class="service-tag">Service 03</div>
+        <h3>Healthcare Consulting</h3>
+        <p>Strategic advisory, operational excellence, and transformation consulting for hospitals, healthcare startups, and medical enterprises seeking sustainable growth.</p>
+        <a href="services/healthcare-consulting.html" class="service-btn navy"><i class="fas fa-arrow-right"></i>&nbsp; Learn More</a>
+      </div>
+      <div class="service-card reveal reveal-delay-4">
+        <div class="service-icon icon-hr"><i class="fas fa-user-nurse"></i></div>
+        <div class="service-tag">Service 04</div>
+        <h3>Healthcare HR</h3>
+        <p>Specialized healthcare talent acquisition, staffing, and workforce management — connecting skilled professionals with leading hospitals and organizations.</p>
+        <a href="https://eminenthrs.com/job-seekers" target="_blank" rel="noopener" class="service-btn red"><i class="fas fa-external-link-alt"></i>&nbsp; Visit EminentHRS</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADVANTAGE -->
+<section class="advantage" id="why-choose-us">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="advantage-kicker">The Eminent Advantage</div>
+      <div class="section-label">Why Choose Us</div>
+      <h2 class="section-title" style="color:var(--white)">Why Patients &amp; Partners <em style="color:var(--gold-light)">Choose Us</em></h2>
+      <p class="section-desc">We are a doctor-led medical services company, not a sales agency. Every decision is made with your health, safety, and peace of mind as the priority.</p>
+    </div>
+    <div class="advantage-cards">
+      <div class="advantage-card reveal reveal-delay-1" data-num="01"><div class="adv-icon"><i class="fas fa-user-md"></i></div><h4>Medical Governance</h4><p>Every treatment plan is vetted by a qualified medical board, not a sales agent. Your safety forms the foundation of every recommendation we make.</p></div>
+      <div class="advantage-card reveal reveal-delay-2" data-num="02"><div class="adv-icon"><i class="fas fa-balance-scale"></i></div><h4>Transparent Care</h4><p>Multi-hospital comparisons and clear cost estimates before you travel. No hidden fees, no last-minute surprises. Complete clarity, every step.</p></div>
+      <div class="advantage-card reveal reveal-delay-3" data-num="03"><div class="adv-icon"><i class="fas fa-hands-helping"></i></div><h4>End-to-End Support</h4><p>From your first inquiry to post-discharge follow-up, we are with you every single step. Our coordinators are dedicated and accessible across time zones.</p></div>
+      <div class="advantage-card reveal reveal-delay-4" data-num="04"><div class="adv-icon"><i class="fas fa-bolt"></i></div><h4>Fast Turnaround</h4><p>Receive your personalised treatment plan and hospital options within 48 hours of sharing your medical reports. No long waits, no unnecessary delays.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY INDIA -->
+<section class="why-india" id="why-india">
+  <div class="container">
+    <div class="why-grid">
+      <div class="reveal">
+        <div class="section-label">Why Choose India</div>
+        <h2 class="section-title">India's Healthcare <em>Advantage</em></h2>
+        <div class="why-list">
+          <div class="why-item"><div class="why-num">01</div><div><h4>World-Class Medical Expertise</h4><p>Over 1.3 million doctors, many trained globally — recognised for complex procedures and cutting-edge treatments.</p></div></div>
+          <div class="why-item"><div class="why-num">02</div><div><h4>Significant Cost Savings</h4><p>Procedures cost 60–80% less than the US, UK, or UAE without compromising on clinical quality.</p></div></div>
+          <div class="why-item"><div class="why-num">03</div><div><h4>Internationally Accredited Hospitals</h4><p>India has the highest number of JCI-accredited hospitals in Asia, ensuring international care standards.</p></div></div>
+          <div class="why-item"><div class="why-num">04</div><div><h4>Minimal Wait Times</h4><p>India offers immediate access to specialists and procedures — critical for time-sensitive conditions.</p></div></div>
+        </div>
+      </div>
+      <div class="why-visual reveal reveal-delay-2">
+        <div class="why-card"><div class="why-card-num">70%</div><p>Average cost savings vs USA / UK</p></div>
+        <div class="why-card"><div class="why-card-num">15+</div><p>Countries we serve</p></div>
+        <div class="why-card"><div class="why-card-num">JCI</div><p>Accredited hospital partners</p></div>
+        <div class="why-card" style="background:var(--teal)"><div class="why-card-num">105+</div><p>Hospital network partners</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="section-label">Get In Touch</div>
+        <h3>Let's Begin Your Healthcare Journey</h3>
+        <p>Whether you're a patient, hospital, or professional — our team is ready to assist you at every step.</p>
+        <div class="contact-item"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div><h5>Office Address</h5><address>520-521, Corporate Avenue,<br>Goregaon East, Mumbai 400063<br>Maharashtra, India</address></div></div>
+        <div class="contact-item"><div class="contact-icon"><i class="fas fa-phone"></i></div><div><h5>Phone / WhatsApp</h5><a href="tel:+919529676929">+91 9529676929</a></div></div>
+        <div class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div><h5>Email</h5><a href="mailto:info.eminent.hcs@gmail.com">info.eminent.hcs@gmail.com</a></div></div>
+        <div class="contact-item"><div class="contact-icon"><i class="fas fa-globe"></i></div><div><h5>Website</h5><span>eminenthealthcareservices.com</span></div></div>
+        <div class="contact-socials">
+          <a href="https://www.linkedin.com/company/eminent-hr-services" target="_blank" rel="noopener" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://wa.me/919529676929" target="_blank" rel="noopener" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+          <a href="mailto:info.eminent.hcs@gmail.com" class="social-btn"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="contact-form-wrap reveal reveal-delay-2">
+        <h3>Send Us an Enquiry</h3>
+        <p>Fill in your details and our team will respond within 24 hours.</p>
+        <form data-formspree action="https://api.web3forms.com/submit" method="POST">
+          <div class="form-row-2">
+            <div class="form-group"><label>Full Name</label><input type="text" name="name" placeholder="Your full name" required /></div>
+            <div class="form-group"><label>Phone / WhatsApp</label><input type="tel" name="phone" placeholder="+XX XXXXXXXXXX" required /></div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group"><label>Email Address</label><input type="email" name="email" placeholder="you@example.com" required /></div>
+            <div class="form-group"><label>Country</label><input type="text" name="country" placeholder="Your country" /></div>
+          </div>
+          <div class="form-group"><label>Service Required</label>
+            <select name="service" required><option value="" disabled selected>Select a service</option><option>Medical Value Tourism</option><option>Medical Equipment</option><option>Healthcare Consulting</option><option>Healthcare HR</option><option>General Inquiry</option></select>
+          </div>
+          <div class="form-group"><label>Message</label><textarea name="message" placeholder="Share your requirements…" required></textarea></div>
+          <input type="hidden" name="access_key" value="bd70cb40-22f4-40b8-92a6-c2f01ad78e96" />
+<input type="hidden" name="subject" value="New Enquiry — Eminent Healthcare Services" />
+          <input type="text" name="_gotcha" style="display:none" />
+          <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i>&nbsp; Send Enquiry</button>
+          <div class="form-status"></div>
+        </form>
+      </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/images/logo.png" class="footer-logo-img" alt="Eminent Healthcare Services" onerror="this.style.display='none'" />
+        <div class="footer-brand-name">Eminent Healthcare Services</div>
+        <div class="footer-brand-tag">Integrated Healthcare Group</div>
+        <p>India's premier integrated healthcare group delivering excellence in Medical Tourism, Equipment, Consulting, and Healthcare HR. Based in Mumbai.</p>
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/company/eminent-hr-services" target="_blank" rel="noopener" class="footer-social-btn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://wa.me/919529676929" target="_blank" rel="noopener" class="footer-social-btn"><i class="fab fa-whatsapp"></i></a>
+          <a href="mailto:info.eminent.hcs@gmail.com" class="footer-social-btn"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="footer-col"><h5>Our Services</h5><ul>
+        <li><a href="services/medical-value-tourism.html">Medical Value Tourism</a></li>
+        <li><a href="services/medical-equipment.html">Medical Equipment</a></li>
+        <li><a href="services/healthcare-consulting.html">Healthcare Consulting</a></li>
+        <li><a href="https://eminenthrs.com/job-seekers" target="_blank" rel="noopener">Healthcare HR &#8599;</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Quick Links</h5><ul>
+        <li><a data-open-about>About Us</a></li>
+        <li><a href="#why-choose-us">Why Choose Us</a></li>
+        <li><a href="#why-india">Why India</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="services/medical-value-tourism.html#specialties">Specialties</a></li>
+        <li><a href="services/medical-value-tourism.html#testimonials">Patient Stories</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Contact</h5>
+        <div class="footer-contact-list">
+          <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><address>520-521 Corporate Avenue,<br>Goregaon East, Mumbai 400063,<br>Maharashtra, India</address></div>
+          <div class="footer-contact-item"><i class="fas fa-phone"></i><a href="tel:+919529676929">+91 9529676929</a></div>
+          <div class="footer-contact-item"><i class="fas fa-envelope"></i><a href="mailto:info.eminent.hcs@gmail.com">info.eminent.hcs@gmail.com</a></div>
+          <div class="footer-contact-item"><i class="fas fa-globe"></i><span>eminenthealthcareservices.com</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Eminent Healthcare Services. All rights reserved. Mumbai, India.</p>
+      <div class="footer-bottom-links"><a href="#contact">Privacy Policy</a><a href="#contact">Terms of Service</a><a href="https://eminenthrs.com/job-seekers" target="_blank" rel="noopener">EminentHRS &#8599;</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
 </body>
 </html>
