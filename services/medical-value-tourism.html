@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Medical Value Tourism | Eminent Healthcare Services</title>
+  <meta name="description" content="End-to-end medical travel facilitation for international patients seeking world-class treatment in India. 105+ hospitals, 30+ specialties. Eminent Healthcare Services, Mumbai." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+
+    /* Testimonial marquee */
+    .testi-track-wrap {
+      overflow: hidden; position: relative;
+      padding: 16px 0 40px;
+    }
+    .testi-track-wrap::before,
+    .testi-track-wrap::after {
+      content: ''; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2;
+    }
+    .testi-track-wrap::before { left: 0;  background: linear-gradient(to right, var(--white), transparent); }
+    .testi-track-wrap::after  { right: 0; background: linear-gradient(to left,  var(--white), transparent); }
+    .testi-track {
+      display: flex; gap: 24px;
+      animation: marquee 42s linear infinite;
+      width: max-content;
+    }
+    .testi-track:hover { animation-play-state: paused; }
+    .testi-card-scroll {
+      background: var(--white); border: 1px solid var(--gray-light);
+      border-radius: var(--radius-lg); padding: 32px 28px;
+      width: 360px; flex-shrink: 0;
+      transition: var(--transition);
+    }
+    .testi-card-scroll:hover { box-shadow: var(--shadow-hover); transform: translateY(-4px); border-color: rgba(201,168,76,.3); }
+    .testi-card-scroll .testi-stars { display: flex; gap: 3px; margin-bottom: 16px; }
+    .testi-card-scroll .testi-stars i { color: var(--gold); font-size: .9rem; }
+    .testi-card-scroll .testi-text { font-size: .88rem; color: var(--text-body); line-height: 1.85; font-style: italic; margin-bottom: 24px; }
+    .testi-card-scroll .testi-author { display: flex; align-items: center; gap: 12px; }
+    .testi-card-scroll .testi-name   { font-size: .86rem; font-weight: 600; color: var(--navy); }
+    .testi-card-scroll .testi-detail { font-size: .73rem; color: var(--gray-mid); margin-top: 2px; }
+
+    /* ── MVT Page-specific styles ─────────────────────────────── */
+
+    /* Enhanced animations */
+    @keyframes slideInLeft  { from { opacity:0; transform:translateX(-32px); } to { opacity:1; transform:translateX(0); } }
+    @keyframes slideInRight { from { opacity:0; transform:translateX( 32px); } to { opacity:1; transform:translateX(0); } }
+    @keyframes scaleIn      { from { opacity:0; transform:scale(.93);        } to { opacity:1; transform:scale(1);    } }
+    @keyframes floatUp      { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-6px);} }
+
+    .reveal-left  { opacity:0; transform:translateX(-28px); transition:opacity .7s ease,transform .7s ease; }
+    .reveal-right { opacity:0; transform:translateX( 28px); transition:opacity .7s ease,transform .7s ease; }
+    .reveal-scale { opacity:0; transform:scale(.94);        transition:opacity .6s ease,transform .6s ease; }
+    .reveal-left.visible,.reveal-right.visible,.reveal-scale.visible { opacity:1; transform:none; }
+
+    /* ── Process steps — dark navy version for MVT ─────────────── */
+    .mvt-process { background:var(--navy); padding:88px 0; }
+    .mvt-process .section-label { color:var(--gold-light); }
+    .mvt-process .section-label::before { background:var(--gold-light); }
+    .mvt-process .section-title { color:var(--white); }
+    .mvt-process .process-steps::before { background:linear-gradient(90deg,var(--gold),var(--teal-light)); }
+    .mvt-process .step-num {
+      background:var(--gold); color:var(--navy);
+      box-shadow:0 0 0 1px rgba(201,168,76,.4), 0 8px 24px rgba(201,168,76,.25);
+    }
+    .mvt-process .process-step:hover .step-num { background:var(--white); color:var(--navy); }
+    .mvt-process .process-step h4 { color:var(--white); }
+    .mvt-process .process-step p  { color:rgba(255,255,255,.58); }
+
+    /* ── What We Offer — dark teal background for MVT ───────────── */
+    .mvt-offer { background:linear-gradient(160deg, #0d1f38 0%, #0a1628 60%, #0f3540 100%); padding:88px 0; }
+    .mvt-offer .section-label { color:var(--gold-light); }
+    .mvt-offer .section-label::before { background:var(--gold-light); }
+    .mvt-offer .section-title { color:var(--white); }
+    .mvt-offer .section-desc  { color:rgba(255,255,255,.62); }
+    .mvt-offer-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:48px; }
+    .mvt-offer-card {
+      background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.09);
+      border-radius:var(--radius-lg); padding:34px 26px;
+      transition:all .38s cubic-bezier(.4,0,.2,1);
+      position:relative; overflow:hidden;
+    }
+    .mvt-offer-card::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:2px;
+      background:linear-gradient(90deg,var(--gold),var(--teal-light));
+      transform:scaleX(0); transition:transform .4s ease;
+    }
+    .mvt-offer-card:hover { background:rgba(255,255,255,.08); transform:translateY(-5px); border-color:rgba(201,168,76,.22); }
+    .mvt-offer-card:hover::before { transform:scaleX(1); }
+    .mvt-offer-card .card-icon {
+      width:54px; height:54px; border-radius:12px;
+      background:rgba(201,168,76,.12); border:1px solid rgba(201,168,76,.2);
+      display:flex; align-items:center; justify-content:center;
+      color:var(--gold-light); font-size:1.3rem; margin-bottom:20px;
+      transition:all .35s ease;
+    }
+    .mvt-offer-card:hover .card-icon { background:var(--gold); color:var(--navy); }
+    .mvt-offer-card h4 { font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:600; color:var(--white); margin-bottom:10px; line-height:1.25; }
+    .mvt-offer-card p  { font-size:.83rem; color:rgba(255,255,255,.57); line-height:1.78; }
+
+    /* ── Patient Support section ─────────────────────────────────── */
+    .mvt-support { background:var(--off-white); padding:88px 0; }
+    .support-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:48px; }
+    .support-card {
+      background:var(--white); border:1px solid var(--gray-light);
+      border-radius:var(--radius-lg); padding:36px 26px; text-align:center;
+      transition:all .38s cubic-bezier(.4,0,.2,1);
+      position:relative; overflow:hidden;
+    }
+    .support-card::after {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(135deg, var(--navy) 0%, var(--teal) 100%);
+      opacity:0; transition:opacity .35s ease; z-index:0;
+    }
+    .support-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-hover); }
+    .support-card:hover::after { opacity:1; }
+    .support-card > * { position:relative; z-index:1; }
+    .support-icon {
+      width:68px; height:68px; border-radius:50%; margin:0 auto 20px;
+      background:linear-gradient(135deg,rgba(10,22,40,.07),rgba(26,122,138,.1));
+      border:2px solid var(--gray-light);
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.6rem; color:var(--teal);
+      transition:all .35s ease;
+    }
+    .support-card:hover .support-icon { background:rgba(255,255,255,.15); border-color:rgba(255,255,255,.3); color:var(--gold-light); }
+    .support-card h4 { font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:700; color:var(--navy); margin-bottom:10px; transition:color .3s; }
+    .support-card p  { font-size:.83rem; color:var(--gray-mid); line-height:1.75; transition:color .3s; }
+    .support-card:hover h4 { color:var(--white); }
+    .support-card:hover p  { color:rgba(255,255,255,.72); }
+
+    /* ── Specialties — dark navy for MVT ────────────────────────── */
+    .mvt-specialties { background:linear-gradient(160deg,#0a1628 0%,#132040 100%); padding:80px 0; }
+    .mvt-specialties .section-label { color:var(--gold-light); }
+    .mvt-specialties .section-label::before { background:var(--gold-light); }
+    .mvt-specialties .section-title { color:var(--white); }
+    .mvt-specialties .section-desc  { color:rgba(255,255,255,.6); }
+    .mvt-specialties .spec-card {
+      background:rgba(255,255,255,.04); border-color:rgba(255,255,255,.09);
+    }
+    .mvt-specialties .spec-card:hover { background:rgba(255,255,255,.09); border-color:rgba(201,168,76,.3); box-shadow:0 8px 32px rgba(0,0,0,.25); }
+    .mvt-specialties .spec-card i  { color:var(--gold-light); }
+    .mvt-specialties .spec-card h4 { color:var(--white); }
+
+    /* ── Testimonials — white for contrast ──────────────────────── */
+    .mvt-testimonials { background:var(--white); padding:80px 0; }
+
+    /* ── Google Form embed container ─────────────────────────────── */
+    .gform-section { background:linear-gradient(160deg,#0d1f38 0%,#0a1628 100%); padding:88px 0; }
+    .gform-section .section-label { color:var(--gold-light); }
+    .gform-section .section-label::before { background:var(--gold-light); }
+    .gform-section .section-title { color:var(--white); }
+    .gform-section .section-desc  { color:rgba(255,255,255,.62); max-width:640px; }
+    .gform-layout { display:grid; grid-template-columns:1fr 1.6fr; gap:56px; align-items:start; margin-top:48px; }
+    .gform-info-col .contact-item h5 { color:rgba(255,255,255,.5); }
+    .gform-info-col .contact-item a,
+    .gform-info-col .contact-item address,
+    .gform-info-col .contact-item span { color:rgba(255,255,255,.8); }
+    .gform-info-col .contact-icon { background:rgba(201,168,76,.15); border:1px solid rgba(201,168,76,.25); color:var(--gold-light); }
+    .gform-info-col .social-btn { border-color:rgba(255,255,255,.2); color:rgba(255,255,255,.6); }
+    .gform-info-col .social-btn:hover { border-color:var(--gold); color:var(--gold); }
+    .gform-info-cta {
+      margin-top:32px; padding:24px; border-radius:var(--radius-lg);
+      background:rgba(201,168,76,.1); border:1px solid rgba(201,168,76,.2);
+    }
+    .gform-info-cta p { font-size:.86rem; color:rgba(255,255,255,.7); line-height:1.75; margin-bottom:16px; }
+    .gform-embed-wrap {
+      background:var(--white); border-radius:var(--radius-lg);
+      overflow:hidden; box-shadow:0 24px 80px rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.08);
+    }
+    .gform-embed-wrap iframe {
+      width:100%; min-height:860px; border:none; display:block;
+    }
+
+    /* ── Navbar height increase (MVT page override) ──────────────── */
+    /* This is handled globally via CSS update */
+
+    @media (max-width:1100px) {
+      .mvt-offer-cards { grid-template-columns:repeat(2,1fr); }
+      .support-grid    { grid-template-columns:repeat(2,1fr); }
+      .gform-layout    { grid-template-columns:1fr; }
+    }
+    @media (max-width:640px) {
+      .mvt-offer-cards { grid-template-columns:1fr; }
+      .support-grid    { grid-template-columns:1fr 1fr; }
+      .gform-embed-wrap iframe { min-height:700px; }
+    }
+    @media (max-width:420px) {
+      .support-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <span><i class="fas fa-phone"></i><a href="tel:+919529676929">+91 9529676929</a></span>
+      <span><i class="fas fa-envelope"></i><a href="mailto:info.eminent.hcs@gmail.com">info.eminent.hcs@gmail.com</a></span>
+      <span><i class="fas fa-map-marker-alt"></i>520-521 Corporate Avenue, Goregaon East, Mumbai 400063</span>
+    </div>
+    <div class="topbar-right"><div class="topbar-social">
+      <a href="https://www.linkedin.com/company/eminent-healthcare-services" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://wa.me/919529676929" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+    </div></div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <img src="../assets/images/logo.png" class="site-logo-img" alt="Eminent Healthcare Services"
+           onerror="this.style.display='none';document.getElementById('nf').classList.remove('hidden')" />
+      <div class="logo-fallback hidden" id="nf">
+        <span class="logo-fallback-main">Eminent</span>
+        <span class="logo-fallback-sub">Healthcare Services</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="#" data-open-about>About Us</a>
+      <div class="nav-dropdown-wrap">
+        <a href="../index.html#services">Services <i class="fas fa-chevron-down dropdown-caret"></i></a>
+        <div class="nav-dropdown">
+          <a href="medical-value-tourism.html"><i class="fas fa-plane-departure"></i><span class="dd-label">Medical Value Tourism<span>International Patient Care</span></span></a>
+          <a href="medical-equipment.html"><i class="fas fa-microscope"></i><span class="dd-label">Medical Equipment<span>Diagnostic &amp; Surgical Supply</span></span></a>
+          <a href="healthcare-consulting.html"><i class="fas fa-chart-line"></i><span class="dd-label">Healthcare Consulting<span>Strategy &amp; Advisory</span></span></a>
+          <hr />
+          <a href="https://eminenthrs.com/job-seekers" target="_blank" rel="noopener"><i class="fas fa-user-nurse"></i><span class="dd-label">Healthcare HR <i class="fas fa-external-link-alt" style="font-size:.6rem"></i><span>Visit EminentHRS</span></span></a>
+        </div>
+      </div>
+      <a href="../index.html#contact">Contact</a>
+      <a href="#enquiry" class="nav-cta">Patient Enquiry</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="menuClose"><i class="fas fa-times"></i></button>
+  <a href="../index.html" class="menu-close-on-click">Home</a>
+  <a data-open-about class="menu-close-on-click">About Us</a>
+  <button class="mobile-nav-services-toggle" id="mobileServicesToggle">Services <i class="fas fa-chevron-down" style="font-size:.8rem;margin-left:6px"></i></button>
+  <div class="mobile-nav-services-submenu" id="mobileServicesSubmenu">
+    <a href="medical-value-tourism.html" class="menu-close-on-click"><i class="fas fa-plane-departure" style="margin-right:8px;color:var(--gold)"></i>Medical Value Tourism</a>
+    <a href="medical-equipment.html"     class="menu-close-on-click"><i class="fas fa-microscope"      style="margin-right:8px;color:var(--gold)"></i>Medical Equipment</a>
+    <a href="healthcare-consulting.html" class="menu-close-on-click"><i class="fas fa-chart-line"      style="margin-right:8px;color:var(--gold)"></i>Healthcare Consulting</a>
+    <a href="https://eminenthrs.com/job-seekers" target="_blank" rel="noopener"><i class="fas fa-user-nurse" style="margin-right:8px;color:var(--gold)"></i>Healthcare HR &#8599;</a>
+  </div>
+  <a href="#enquiry" class="menu-close-on-click">Patient Enquiry</a>
+  <div class="mobile-menu-social">
+    <a href="https://www.linkedin.com/company/eminent-healthcare-services" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://wa.me/919529676929" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+    <a href="mailto:info.eminent.hcs@gmail.com"><i class="fas fa-envelope"></i></a>
+  </div>
+</div>
+
+<!-- ABOUT PANEL (Vision + Mission added) -->
+<div class="about-panel" id="aboutPanel">
+  <div class="about-panel-inner">
+    <button class="about-panel-close" id="aboutPanelClose"><i class="fas fa-times"></i></button>
+    <div class="about-panel-label">Who We Are</div>
+    <h2 class="about-panel-title">About <em>Eminent Healthcare Services</em></h2>
+
+    <!-- VISION — added at top as instructed -->
+    <div class="about-panel-vision" style="margin-top:0;margin-bottom:24px;">
+      <h4>Our Vision</h4>
+      <p>To become Asia's most trusted integrated healthcare services group — where every patient receives the clinical care they deserve, every institution reaches its fullest potential, and every healthcare professional finds purpose and growth in their career.</p>
+    </div>
+
+    <!-- MISSION — new subsection -->
+    <div class="about-panel-vision" style="margin-bottom:24px;background:linear-gradient(135deg,#132040,#1a7a8a22);border-left:3px solid var(--teal-light);">
+      <h4 style="color:var(--teal-light);">Our Mission</h4>
+      <p>To bridge the gap between patients who need world-class healthcare and institutions that provide it — by building a transparent, clinically governed, and human-centred ecosystem across Medical Value Tourism, Equipment, Consulting, and Healthcare Workforce solutions. We are committed to making quality healthcare accessible, affordable, and deeply personal for every individual we serve.</p>
+    </div>
+
+    <p class="about-panel-lead">Eminent Healthcare Services is India's integrated healthcare group — a multi-dimensional platform built to serve patients, institutions, and professionals with integrity, expertise, and a human-first approach.</p>
+    <p class="about-panel-body">Founded with a vision to transform how healthcare is accessed, delivered, and experienced — we operate across four specialized service lines addressing critical touchpoints in the modern healthcare ecosystem.</p>
+    <div class="about-panel-pillars">
+      <div class="about-pillar-card"><i class="fas fa-plane-departure"></i><h4>Medical Value Tourism</h4><p>End-to-end medical travel facilitation for international patients seeking world-class care in India.</p></div>
+      <div class="about-pillar-card"><i class="fas fa-microscope"></i><h4>Medical Equipment</h4><p>Procurement and supply of premium diagnostic, surgical, and therapeutic medical equipment.</p></div>
+      <div class="about-pillar-card"><i class="fas fa-chart-line"></i><h4>Healthcare Consulting</h4><p>Strategic advisory and transformation consulting for hospitals and medical enterprises.</p></div>
+      <div class="about-pillar-card"><i class="fas fa-user-nurse"></i><h4>Healthcare HR</h4><p>Specialized talent acquisition connecting skilled professionals with leading healthcare organizations.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+  PAGE HERO
+============================================================ -->
+<section class="page-hero">
+  <!-- Changed to a premium hospital corridor / medical tourism image -->
+  <div class="page-hero-bg" style="background-image:
+    linear-gradient(135deg,rgba(8,16,32,.90) 0%,rgba(10,22,40,.80) 50%,rgba(26,122,138,.35) 100%),
+    url('https://images.unsplash.com/photo-1516841273335-e39b37888115?w=1920&auto=format&fit=crop&q=85');"></div>
+  <div class="page-hero-content">
+    <div class="page-hero-breadcrumb">
+      <a href="../index.html">Home</a><span class="sep">/</span>
+      <a href="../index.html#services">Services</a><span class="sep">/</span>
+      <span>Medical Value Tourism</span>
+    </div>
+    <div class="hero-badge"><i class="fas fa-plane-departure"></i>&nbsp; Service 01 — Medical Value Tourism</div>
+    <h1 class="hero-title">World-Class Care,<br/><em>Made Accessible</em></h1>
+    <p class="hero-subtitle">We connect international patients with India's finest hospitals — managing every step of the medical journey from the first enquiry to recovery at home.</p>
+    <div class="hero-actions">
+      <!-- CHANGE 7: "Book Free Consultation" → "Plan Your Treatment" -->
+      <a href="#enquiry" class="btn-primary"><i class="fas fa-calendar-check"></i>&nbsp; Plan Your Treatment</a>
+      <a href="https://wa.me/919529676929" target="_blank" rel="noopener" class="btn-whatsapp"><i class="fab fa-whatsapp"></i>&nbsp; Chat on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  CHANGE 1: 5-STEP JOURNEY moved ABOVE "What We Offer"
+  CHANGE 2: Step titles updated
+============================================================ -->
+<section class="mvt-process" id="process">
+  <div class="container">
+    <div class="section-header center reveal">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-title">Your Journey in <em>5 Simple Steps</em></h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal reveal-delay-1">
+        <div class="step-num">1</div>
+        <h4>Send Inquiry</h4>
+        <p>Share your medical reports and requirements via our form, WhatsApp, or email.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-2">
+        <div class="step-num">2</div>
+        <h4>Expert Review</h4>
+        <p>Our coordinators assess your case and identify the best specialist and hospital options for you.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-3">
+        <!-- CHANGE 2: "Cost Estimate" → "Hospital & Cost" -->
+        <div class="step-num">3</div>
+        <h4>Hospital &amp; Cost</h4>
+        <p>Receive curated hospital options with transparent cost estimates — no hidden charges, within 48 hours.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-4">
+        <!-- CHANGE 2: "Travel Assistance" → "Travel & Visa" -->
+        <div class="step-num">4</div>
+        <h4>Travel &amp; Visa</h4>
+        <p>We coordinate your medical visa, flights, airport pickup, accommodation, and hospital appointments.</p>
+      </div>
+      <div class="process-step reveal">
+        <!-- CHANGE 2: "Recovery Support" → "Care & Recovery" -->
+        <div class="step-num">5</div>
+        <h4>Care &amp; Recovery</h4>
+        <p>Post-treatment care coordination and follow-up consultations from the comfort of your home country.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  CHANGE 3: NEW "Comprehensive Patient Support" section
+  (placed below 5-step journey, above What We Offer)
+============================================================ -->
+<section class="mvt-support" id="patient-support">
+  <div class="container">
+    <div class="section-header center reveal">
+      <div class="section-label">Beyond Treatment</div>
+      <h2 class="section-title">Comprehensive <em>Patient Support</em></h2>
+      <p class="section-desc">We don't just arrange your treatment — we take care of every aspect of your stay, comfort, and recovery in India.</p>
+    </div>
+    <div class="support-grid">
+      <div class="support-card reveal reveal-delay-1">
+        <div class="support-icon"><i class="fas fa-shuttle-van"></i></div>
+        <h4>Airport Concierge</h4>
+        <p>Dedicated pickup from the airport on arrival — and a comfortable drop-off when you head home. We are with you from the moment you land.</p>
+      </div>
+      <div class="support-card reveal reveal-delay-2">
+        <div class="support-icon"><i class="fas fa-hotel"></i></div>
+        <h4>Stay &amp; Food Assistance</h4>
+        <p>Carefully selected accommodation near your hospital — with dietary preferences and nutritional needs taken care of throughout your stay.</p>
+      </div>
+      <div class="support-card reveal reveal-delay-3">
+        <div class="support-icon"><i class="fas fa-language"></i></div>
+        <h4>Language Support</h4>
+        <p>Multilingual coordinators fluent in Arabic, French, English, and more — eliminating communication barriers during consultations and procedures.</p>
+      </div>
+      <div class="support-card reveal reveal-delay-1">
+        <div class="support-icon"><i class="fas fa-map-marked-alt"></i></div>
+        <h4>Local Exploration</h4>
+        <p>Guided local experiences and cultural outings during your recovery period — making your time in India meaningful beyond the hospital walls.</p>
+      </div>
+      <div class="support-card reveal reveal-delay-2">
+        <div class="support-icon"><i class="fas fa-user-shield"></i></div>
+        <h4>Dedicated Care Manager</h4>
+        <p>A single point of contact assigned to you from day one — managing every detail, answering every question, available whenever you need them.</p>
+      </div>
+      <div class="support-card reveal reveal-delay-3">
+        <div class="support-icon"><i class="fas fa-heartbeat"></i></div>
+        <h4>Post-Treatment Follow-Up</h4>
+        <p>Regular check-ins after you return home, coordination of follow-up consultations, and clinical support for continued recovery and peace of mind.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  WHAT WE OFFER — now below process + support (CHANGE 1)
+  Dark navy palette (CHANGE 4)
+============================================================ -->
+<section class="mvt-offer" id="what-we-offer">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">What We Offer</div>
+      <h2 class="section-title">Comprehensive Medical <em>Travel Support</em></h2>
+      <p class="section-desc" style="color:rgba(255,255,255,.62);">From pre-travel consultations to post-discharge follow-up — we handle every detail so patients can focus entirely on healing.</p>
+    </div>
+    <div class="mvt-offer-cards">
+      <div class="mvt-offer-card reveal reveal-delay-1">
+        <div class="card-icon"><i class="fas fa-hand-holding-heart"></i></div>
+        <h4>End-to-End Care Management</h4>
+        <p>Complete coordination from first inquiry through treatment, recovery, and safe return home — managed with compassion and clinical precision.</p>
+      </div>
+      <div class="mvt-offer-card reveal reveal-delay-2">
+        <div class="card-icon"><i class="fas fa-hospital"></i></div>
+        <h4>Elite Hospital Network</h4>
+        <p>Access to 105+ accredited hospitals including JCI and NABH-certified institutions across Mumbai, Delhi, Chennai, Bengaluru, and Hyderabad.</p>
+      </div>
+      <div class="mvt-offer-card reveal reveal-delay-3">
+        <div class="card-icon"><i class="fas fa-user-md"></i></div>
+        <h4>Expert Medical Opinions</h4>
+        <p>Pre-travel specialist consultations and second opinions from India's leading surgeons — giving you complete confidence before you travel.</p>
+      </div>
+      <div class="mvt-offer-card reveal reveal-delay-1">
+        <div class="card-icon"><i class="fas fa-passport"></i></div>
+        <h4>Visa &amp; Travel Assistance</h4>
+        <p>Medical visa application support, airport pickup, accommodation coordination, and local transport — we handle logistics so you focus on healing.</p>
+      </div>
+      <div class="mvt-offer-card reveal reveal-delay-2">
+        <div class="card-icon"><i class="fas fa-language"></i></div>
+        <h4>Multilingual Coordination</h4>
+        <p>Dedicated coordinators fluent in Arabic, French, English, and more — ensuring seamless communication throughout your treatment journey.</p>
+      </div>
+      <div class="mvt-offer-card reveal reveal-delay-3">
+        <div class="card-icon"><i class="fas fa-piggy-bank"></i></div>
+        <h4>Cost Transparency</h4>
+        <p>Detailed pre-treatment cost estimates with no hidden charges. Save 60–80% compared to equivalent treatments in the US, UK, or Middle East.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  SPECIALTIES — dark navy for MVT (CHANGE 4)
+============================================================ -->
+<section class="mvt-specialties" id="specialties">
+  <div class="container">
+    <div class="section-header center reveal">
+      <div class="section-label">Medical Specialties</div>
+      <h2 class="section-title">30+ Specialties, <em style="color:var(--gold-light)">One Trusted Partner</em></h2>
+      <p class="section-desc">We facilitate treatment across all major medical disciplines at internationally accredited hospitals across India.</p>
+    </div>
+    <div class="spec-grid">
+      <div class="spec-card reveal"><i class="fas fa-heart"></i><h4>Cardiac Surgery</h4></div>
+      <div class="spec-card reveal reveal-delay-1"><i class="fas fa-brain"></i><h4>Neurology &amp; Neurosurgery</h4></div>
+      <div class="spec-card reveal reveal-delay-2"><i class="fas fa-ribbon"></i><h4>Oncology &amp; Cancer Care</h4></div>
+      <div class="spec-card reveal reveal-delay-3"><i class="fas fa-bone"></i><h4>Orthopedics &amp; Joint Replacement</h4></div>
+      <div class="spec-card reveal"><i class="fas fa-baby"></i><h4>IVF &amp; Fertility</h4></div>
+      <div class="spec-card reveal reveal-delay-1"><i class="fas fa-eye"></i><h4>Ophthalmology</h4></div>
+      <div class="spec-card reveal reveal-delay-2"><i class="fas fa-lungs"></i><h4>Pulmonology</h4></div>
+      <div class="spec-card reveal reveal-delay-3"><i class="fas fa-dna"></i><h4>Stem Cell Therapy</h4></div>
+      <div class="spec-card reveal"><i class="fas fa-kidneys"></i><h4>Urology &amp; Kidney</h4></div>
+      <div class="spec-card reveal reveal-delay-1"><i class="fas fa-tooth"></i><h4>Dental &amp; Maxillofacial</h4></div>
+      <div class="spec-card reveal reveal-delay-2"><i class="fas fa-spa"></i><h4>Cosmetic &amp; Plastic Surgery</h4></div>
+      <div class="spec-card reveal reveal-delay-3"><i class="fas fa-plus-square"></i><h4>Organ Transplant</h4></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  TESTIMONIALS
+============================================================ -->
+<section class="mvt-testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-header center reveal">
+      <div class="section-label">Patient Stories</div>
+      <h2 class="section-title">Trusted by Patients <em>Across the World</em></h2>
+    </div>
+  </div>
+
+  <!-- Scrolling testimonial marquee -->
+  <div class="testi-track-wrap">
+    <div class="testi-track">
+
+      <div class="testi-card-scroll">
+        <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="testi-text">Eminent Healthcare guided me through my entire cardiac bypass journey. From the cost estimate to flying back home after surgery — they were with me every step.</p>
+        <div class="testi-author"><div class="testi-avatar">A</div><div><div class="testi-name">Ahmed Al-Rashidi</div><div class="testi-detail">🇴🇲 Oman — Cardiac Bypass</div></div></div>
+      </div>
+
+      <div class="testi-card-scroll">
+        <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="testi-text">The team arranged everything — hospital, visa, accommodation. I just had to focus on my treatment. World-class care at a fraction of what it would cost back home.</p>
+        <div class="testi-author"><div class="testi-avatar">M</div><div><div class="testi-name">Margaret Osei</div><div class="testi-detail">🇬🇭 Ghana — Knee Replacement</div></div></div>
+      </div>
+
+      <div class="testi-card-scroll">
+        <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="testi-text">My father's cancer treatment arranged by Eminent was exceptional. The oncology team and the personal care from coordinators made a deeply difficult time manageable.</p>
+        <div class="testi-author"><div class="testi-avatar">F</div><div><div class="testi-name">Fatimah Al-Zahrani</div><div class="testi-detail">🇸🇦 Saudi Arabia — Oncology</div></div></div>
+      </div>
+
+      <div class="testi-card-scroll">
+        <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="testi-text">I travelled from Nigeria for a liver transplant. Eminent coordinated everything seamlessly — the hospital was outstanding and the savings were significant.</p>
+        <div class="testi-author"><div class="testi-avatar">C</div><div><div class="testi-name">Chukwuemeka Obi</div><div class="testi-detail">🇳🇬 Nigeria — Liver Transplant</div></div></div>
+      </div>
+
+      <div class="testi-card-scroll">
+        <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="testi-text">My IVF treatment at a Mumbai hospital arranged by Eminent was a complete success. The coordinator was available every single day and made us feel completely at ease.</p>
+        <div class="testi-author"><div class="testi-avatar">L</div><div><div class="testi-name">Lina Al-Hamdan</div><div class="testi-detail">🇰🇼 Kuwait — IVF Treatment</div></div></div>
+      </div>
+
+      <div class="testi-card-scroll">
+        <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="testi-text">Spine surgery in India through Eminent saved me over 70% compared to UK costs. The hospital was JCI accredited and the care was genuinely exceptional throughout.</p>
+        <div class="testi-author"><div class="testi-avatar">R</div><div><div class="testi-name">Robert Mensah</div><div class="testi-detail">🇬🇧 UK — Spine Surgery</div></div></div>
+      </div>
+
+      <div class="testi-card-scroll">
+        <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="testi-text">From the moment I landed in Mumbai to the day I flew back, everything was taken care of. Eminent's coordinator was like family — always there, always helpful.</p>
+        <div class="testi-author"><div class="testi-avatar">Y</div><div><div class="testi-name">Yusuf Al-Mansoori</div><div class="testi-detail">🇦🇪 UAE — Hip Replacement</div></div></div>
+      </div>
+
+      <div class="testi-card-scroll">
+        <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="testi-text">I had a complex neurosurgery done in India. Eminent found me the best neurosurgeon in the country within 48 hours of sharing my reports. Truly remarkable service.</p>
+        <div class="testi-author"><div class="testi-avatar">S</div><div><div class="testi-name">Sara Al-Rasheed</div><div class="testi-detail">🇧🇭 Bahrain — Neurosurgery</div></div></div>
+      </div>
+
+      <!-- Duplicate set for seamless loop -->
+
+      <div class="testi-card-scroll">
+        <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="testi-text">Eminent Healthcare guided me through my entire cardiac bypass journey. From the cost estimate to flying back home after surgery — they were with me every step.</p>
+        <div class="testi-author"><div class="testi-avatar">A</div><div><div class="testi-name">Ahmed Al-Rashidi</div><div class="testi-detail">🇴🇲 Oman — Cardiac Bypass</div></div></div>
+      </div>
+
+      <div class="testi-card-scroll">
+        <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="testi-text">The team arranged everything — hospital, visa, accommodation. I just had to focus on my treatment. World-class care at a fraction of what it would cost back home.</p>
+        <div class="testi-author"><div class="testi-avatar">M</div><div><div class="testi-name">Margaret Osei</div><div class="testi-detail">🇬🇭 Ghana — Knee Replacement</div></div></div>
+      </div>
+
+      <div class="testi-card-scroll">
+        <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="testi-text">My father's cancer treatment arranged by Eminent was exceptional. The oncology team and the personal care from coordinators made a deeply difficult time manageable.</p>
+        <div class="testi-author"><div class="testi-avatar">F</div><div><div class="testi-name">Fatimah Al-Zahrani</div><div class="testi-detail">🇸🇦 Saudi Arabia — Oncology</div></div></div>
+      </div>
+
+      <div class="testi-card-scroll">
+        <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="testi-text">I travelled from Nigeria for a liver transplant. Eminent coordinated everything seamlessly — the hospital was outstanding and the savings were significant.</p>
+        <div class="testi-author"><div class="testi-avatar">C</div><div><div class="testi-name">Chukwuemeka Obi</div><div class="testi-detail">🇳🇬 Nigeria — Liver Transplant</div></div></div>
+      </div>
+
+      <div class="testi-card-scroll">
+        <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="testi-text">My IVF treatment at a Mumbai hospital arranged by Eminent was a complete success. The coordinator was available every single day and made us feel completely at ease.</p>
+        <div class="testi-author"><div class="testi-avatar">L</div><div><div class="testi-name">Lina Al-Hamdan</div><div class="testi-detail">🇰🇼 Kuwait — IVF Treatment</div></div></div>
+      </div>
+
+      <div class="testi-card-scroll">
+        <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="testi-text">Spine surgery in India through Eminent saved me over 70% compared to UK costs. The hospital was JCI accredited and the care was genuinely exceptional throughout.</p>
+        <div class="testi-author"><div class="testi-avatar">R</div><div><div class="testi-name">Robert Mensah</div><div class="testi-detail">🇬🇧 UK — Spine Surgery</div></div></div>
+      </div>
+
+      <div class="testi-card-scroll">
+        <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="testi-text">From the moment I landed in Mumbai to the day I flew back, everything was taken care of. Eminent's coordinator was like family — always there, always helpful.</p>
+        <div class="testi-author"><div class="testi-avatar">Y</div><div><div class="testi-name">Yusuf Al-Mansoori</div><div class="testi-detail">🇦🇪 UAE — Hip Replacement</div></div></div>
+      </div>
+
+      <div class="testi-card-scroll">
+        <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="testi-text">I had a complex neurosurgery done in India. Eminent found me the best neurosurgeon in the country within 48 hours of sharing my reports. Truly remarkable service.</p>
+        <div class="testi-author"><div class="testi-avatar">S</div><div><div class="testi-name">Sara Al-Rasheed</div><div class="testi-detail">🇧🇭 Bahrain — Neurosurgery</div></div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  CHANGE 8B: Google Form embedded — Patient Enquiry
+============================================================ -->
+<section class="gform-section" id="enquiry">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Patient Enquiry</div>
+      <h2 class="section-title">Plan Your <em style="color:var(--gold-light)">Treatment Journey</em></h2>
+      <p class="section-desc">Fill in the form below with your details and medical requirements. Our coordinator will respond within 24 hours with a personalised plan.</p>
+    </div>
+    <div class="gform-layout">
+
+      <!-- LEFT: Contact info -->
+      <div class="gform-info-col reveal">
+        <div class="contact-item" style="margin-bottom:20px;">
+          <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div><h5>Address</h5><address>520-521 Corporate Avenue,<br>Goregaon East, Mumbai 400063</address></div>
+        </div>
+        <div class="contact-item" style="margin-bottom:20px;">
+          <div class="contact-icon"><i class="fas fa-phone"></i></div>
+          <div><h5>Phone / WhatsApp</h5><a href="tel:+919529676929">+91 9529676929</a></div>
+        </div>
+        <div class="contact-item" style="margin-bottom:20px;">
+          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+          <div><h5>Email</h5><a href="mailto:info.eminent.hcs@gmail.com">info.eminent.hcs@gmail.com</a></div>
+        </div>
+        <div class="contact-socials" style="margin-top:24px;">
+          <a href="https://www.linkedin.com/company/eminent-healthcare-services" target="_blank" rel="noopener" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://wa.me/919529676929" target="_blank" rel="noopener" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+          <a href="mailto:info.eminent.hcs@gmail.com" class="social-btn"><i class="fas fa-envelope"></i></a>
+        </div>
+        <div class="gform-info-cta">
+          <p><strong style="color:var(--gold-light);">Prefer to talk?</strong><br>
+          Our coordinators are available Monday to Saturday, 9 AM – 7 PM IST. You can also reach us any time via WhatsApp.</p>
+          <!-- CHANGE 7: "Plan Your Treatment" button -->
+          <a href="https://wa.me/919529676929?text=Hello%2C%20I%20would%20like%20to%20Plan%20My%20Treatment%20with%20Eminent%20Healthcare%20Services."
+             target="_blank" rel="noopener" class="btn-primary" style="width:100%;justify-content:center;">
+            <i class="fab fa-whatsapp"></i>&nbsp; Plan Your Treatment
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT: Google Form embedded -->
+      <div class="gform-embed-wrap reveal reveal-delay-2">
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSflFJlGpe2fSpi9Yu5bxs3tl-9daSMZJhQVmk8Ju-8aB-HI6w/viewform?embedded=true"
+          width="100%"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          loading="lazy"
+          title="Medical Value Tourism Patient Enquiry Form">
+          Loading form…
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../assets/images/logo.png" class="footer-logo-img" alt="Eminent Healthcare Services" onerror="this.style.display='none'" />
+        <div class="footer-brand-name">Eminent Healthcare Services</div>
+        <div class="footer-brand-tag">Integrated Healthcare Group</div>
+        <p>India's premier integrated healthcare group delivering excellence in Medical Tourism, Equipment, Consulting, and Healthcare HR. Based in Mumbai.</p>
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/company/eminent-healthcare-services" target="_blank" rel="noopener" class="footer-social-btn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://wa.me/919529676929" target="_blank" rel="noopener" class="footer-social-btn"><i class="fab fa-whatsapp"></i></a>
+          <a href="mailto:info.eminent.hcs@gmail.com" class="footer-social-btn"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="footer-col"><h5>Our Services</h5><ul>
+        <li><a href="medical-value-tourism.html">Medical Value Tourism</a></li>
+        <li><a href="medical-equipment.html">Medical Equipment</a></li>
+        <li><a href="healthcare-consulting.html">Healthcare Consulting</a></li>
+        <li><a href="https://eminenthrs.com/job-seekers" target="_blank" rel="noopener">Healthcare HR &#8599;</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Quick Links</h5><ul>
+        <li><a data-open-about>About Us</a></li>
+        <li><a href="../index.html#why-choose-us">Why Choose Us</a></li>
+        <li><a href="../index.html#why-india">Why India</a></li>
+        <li><a href="../index.html#contact">Contact Us</a></li>
+        <li><a href="#specialties">Specialties</a></li>
+        <li><a href="#testimonials">Patient Stories</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Contact</h5>
+        <div class="footer-contact-list">
+          <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><address>520-521 Corporate Avenue,<br>Goregaon East, Mumbai 400063,<br>Maharashtra, India</address></div>
+          <div class="footer-contact-item"><i class="fas fa-phone"></i><a href="tel:+919529676929">+91 9529676929</a></div>
+          <div class="footer-contact-item"><i class="fas fa-envelope"></i><a href="mailto:info.eminent.hcs@gmail.com">info.eminent.hcs@gmail.com</a></div>
+          <div class="footer-contact-item"><i class="fas fa-globe"></i><span>eminenthealthcareservices.com</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Eminent Healthcare Services. All rights reserved. Mumbai, India.</p>
+      <div class="footer-bottom-links">
+        <a href="../index.html#contact">Privacy Policy</a>
+        <a href="../index.html#contact">Terms of Service</a>
+        <a href="https://eminenthrs.com/job-seekers" target="_blank" rel="noopener">EminentHRS &#8599;</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+<script>
+  // Extra reveal classes for MVT page
+  const extraRevealObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        extraRevealObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal-left,.reveal-right,.reveal-scale').forEach(el => extraRevealObs.observe(el));
+</script>
+</body>
+</html>
