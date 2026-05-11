@@ -513,7 +513,7 @@ section { padding: 96px 0; }
   margin:0 auto 22px; font-size:1.6rem; transition:var(--transition);
 }
 .service-card:hover .service-icon { transform:scale(1.1) rotate(-5deg); }
-.icon-tourism   { background:rgba(201,168,76,.1);  color:var(--gold); }
+.icon-Travel   { background:rgba(201,168,76,.1);  color:var(--gold); }
 .icon-equipment { background:rgba(26,122,138,.1);  color:var(--teal); }
 .icon-consulting{ background:rgba(10,22,40,.08);   color:var(--navy); }
 .icon-hr        { background:rgba(180,60,60,.08);  color:#b43c3c; }
